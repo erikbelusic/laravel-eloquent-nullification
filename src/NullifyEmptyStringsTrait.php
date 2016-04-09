@@ -12,10 +12,17 @@ trait NullifyEmptyStringsTrait
      */
     protected $nullificationRan = false;
 
+    /**
+     * An array of Eloquent model events that will trigger nullification.
+     *
+     * @var array
+     */
     protected static $nullifyOnModelEvents = ['creating', 'updating', 'saving'];
 
     /**
      * Boot method for the trait watches model events for creating, updating, and saving.
+     *
+     * @return void
      */
     public static function bootNullifyEmptyStrings()
     {
@@ -43,7 +50,7 @@ trait NullifyEmptyStringsTrait
 
     /**
      * @param $value
-     * @return null
+     * @return null|string
      */
     protected function setNullOnEmptyString($value)
     {
