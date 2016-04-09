@@ -1,9 +1,6 @@
 {
     "name": "belusic/laravel-eloquent-nullification",
     "description": "A trait for Eloquent models that allows for the easy nullification of empty strings on creation and saving.",
-    "require-dev": {
-        "phpunit/phpunit": "^5.3"
-    },
     "license": "MIT",
     "authors": [
         {
@@ -11,5 +8,15 @@
             "email": "erikbelusic@outlook.com"
         }
     ],
-    "require": {}
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Belusic\\LaravelEloquentNullification\\": "src"
+        }
+    }
 }
