@@ -12,20 +12,18 @@ trait NullifyEmptyStringsTrait
      */
     protected $nullificationRan = false;
 
+    protected static $nullifyOnModelEvents = ['creating', 'updating', 'saving'];
+
     /**
      * Boot method for the trait watches model events for creating, updating, and saving.
      */
     public static function bootNullifyEmptyStrings()
     {
-        static::creating(function ($model) {
-            $model->nullifyTheNullableAttributes();
-        });
-        static::updating(function ($model) {
-            $model->nullifyTheNullableAttributes();
-        });
-        static::saving(function ($model) {
-            $model->nullifyTheNullableAttributes();
-        });
+        foreach(static::$nullifyOnModelEvents as $event) {
+            static::$event(function ($model) {
+                $model->nullifyTheNullableAttributes();
+            });
+        }
     }
 
     /**
